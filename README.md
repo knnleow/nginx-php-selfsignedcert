@@ -4,6 +4,7 @@ Docker nginx with php-fpm, self-sign-cert, ubuntu 16.04
 ## Note
 my NAS Crash few days back. Pending Power Supply replacement.
 will update the Dockerfile after Disk recovery
+Good thing that come out of this. I learned to use github to store my configuration repository 
 
 ## Description
 A Dockerfile that installs ubuntu 16.04 with nginx 1.10.0, and php-fpm 7.0 based on
@@ -28,8 +29,8 @@ Create File docker-compose.yml
         volumes:
             - ./nginx/log:/var/log/nginx
             - ./nginx/sites-available:/etc/nginx/sites-available
-        - ./letsencrypt:/etc/letsencrypt
-        - ./data01:/var/www/html
+            - ./letsencrypt:/etc/letsencrypt
+            - ./data01:/var/www/html
         
 ## Execute Command to start a new nginx instance
 
