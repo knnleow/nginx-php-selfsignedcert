@@ -15,22 +15,27 @@ Create File docker-compose.yml
 
 ## docker-compose.yml
 
-    nginx:
-        image: knnleow/nginx-php-selfsignedcert:1.0
-        environment:
-            SERVER_NAME: cdn01.demo.co
-            mysslsubject: "/C=SG/ST=Singapore/L=Singapore/O=demo.co/OU=DEMO_Lab/CN=cdn01.demo.co/emailAddress=admin@demo.co"
-            myloginuser: admin
-            myregion: Asia
-            mycountry: Singapore
-        ports:
-            - 9080:80
-            - 9443:443
-        volumes:
-            - ./nginx/log:/var/log/nginx
-            - ./nginx/sites-available:/etc/nginx/sites-available
-            - ./letsencrypt:/etc/letsencrypt
-            - ./data01:/var/www/html
+    version: 3
+    services:
+        nginx:
+            image: knnleow/nginx-php-selfsignedcert:1.0
+            environment:
+                SERVER_NAME: cdn01.demo.co
+                mysslsubject: "/C=SG/ST=Singapore/L=Singapore/O=demo.co/OU=DEMO_Lab/CN=cdn01.demo.co/emailAddress=admin@demo.co"
+                myloginuser: admin
+                myregion: Asia
+                mycountry: Singapore
+            ports:
+                - 9080:80
+                - 9443:443
+            volumes:
+                - ./nginx/log:/var/log/nginx
+                - ./nginx/sites-available:/etc/nginx/sites-available
+                - ./letsencrypt:/etc/letsencrypt
+                - ./data01:/var/www/html
+                - nginx-backup:/nginx-backup
+    volumes:
+        nginx-backup: {}
         
 ## Execute Command to start a new nginx instance
 
