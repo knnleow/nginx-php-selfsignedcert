@@ -18,10 +18,10 @@ Create File docker-compose.yml
     version: 3
     services:
         nginx:
-            image: knnleow/nginx-php-selfsignedcert:1.0
+            image: knnleow/nginx-php-selfsignedcert-version3:1.0
             environment:
-                SERVER_NAME: cdn01.demo.co
-                mysslsubject: "/C=SG/ST=Singapore/L=Singapore/O=demo.co/OU=DEMO_Lab/CN=cdn01.demo.co/emailAddress=admin@demo.co"
+                SERVER_NAME: svr01.demo.co
+                mysslsubject: "/C=SG/ST=Singapore/L=Singapore/O=demo.co/OU=DEMO_Lab/CN=svr01.demo.co/emailAddress=admin@demo.co"
                 myloginuser: admin
                 myregion: Asia
                 mycountry: Singapore
